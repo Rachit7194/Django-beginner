@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+{% block content %}
+    <header>
+        <h1> <strong>{{ SITE_NAME }}</strong></h1>
+    </header>
+{#    <section class="main" >#}
+    <div align="center">
+    <form method="post" style="margin:20%"  >
+        {{ SITE_NAME }}
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">
+            Login
+        </button>
+
+    </form>
+        </div>
+{#    </section>#}
+
+    </form>
+{% endblock %}

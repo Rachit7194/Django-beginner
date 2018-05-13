@@ -1,0 +1,34 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>{% block title %}SVX{% endblock %}</title>
+</head>
+<body>
+{% block navbar %}
+    <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">{{ SITE_NAME }}</a>
+  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+</nav>
+{% endblock %}
+  <main>
+    {% block content %}
+        {% if user.is_authenticated %}
+{#            {% block navbar %}#}
+{#                <nav class="navbar navbar-dark bg-dark">#}
+{#                    <a class="navbar-brand">{{ SITE_NAME }}</a>#}
+{#                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>#}
+{#                </nav>#}
+{#            {% endblock %}#}
+            HII {{ user.username }} !....GREETINGS FROM {{ SITE_NAME }}
+        {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">login</a>
+        {% endif %}
+
+    {% endblock %}
+  </main>
+</body>
+</html>

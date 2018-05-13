@@ -1,0 +1,11 @@
+{#{% extends 'base.html' %}#}
+
+{% block title %}
+List Of Videos:
+{% endblock %}
+
+<ul>
+    {% for item in myvideoslist %}
+        <li><a href="{% url 'videodetails'%}?name={{ item }}">{{ item }}</a></li>
+    {% endfor %}
+</ul>
